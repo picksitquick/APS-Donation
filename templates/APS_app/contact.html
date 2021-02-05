@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Appropriate people Services [APS]</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  {% load static %}
+  <link href="{% static 'aps_app/modern-business.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!--navigation-->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+    <div class="container">
+      <a href="{% url 'APS_app:index'%}">Home</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="{% url 'APS_app:upcoming' %}" class="nav-link">Upcoming Campaigns</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'APS_app:services' %}" class="nav-link">Our Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'APS_app:about' %}" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'APS_app:contact' %}" class="nav-link">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'APS_app:user_login' %}" class="nav-link">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'APS_app:register' %}" class="nav-link">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+  <!--end navigation-->
+
+  <!--Start of container-->
+  <div class="container">
+
+    <h1 class="mt-4 mb-3">Contact Us
+    </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{% url 'APS_app:index' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="{% url 'APS_app:index' %}">Personal Query</a>
+        </li>
+        <li class="breadcrumb-item">
+        <a href="{% url 'APS_app:index' %}">Corparate Query</a>
+      </li>
+      <li class="breadcrumb-item active">Contact Us</li>
+    </ol>
+
+    <!-- Content Row -->
+    <div class="row">
+      <!--Map Column-->
+      <div class="col-lg-8 mb-4">
+        <!-- Embedded Google Map -->
+        <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=18.516726,73.856255&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+      </div>
+      <!-- Contact Details Column -->
+      <div class="col-lg-4 mmb-4">
+        <h3>Contact Details : </h3>
+        <p>288/12 Hadapsar Marg
+          <br>Pune Highway, Maharashtra - 240056
+          <br></p>
+          <p><abbr title="Phone">Ph No.</abbr> : (123) 456-7890</p>
+           <p>
+          <abbr title="Email">Email : </abbr>:
+          <a href="mailto:name@example.com">APSinfo@gmail.com
+          </a>
+        </p>
+        <p>
+          <abbr title="Hours">Hours : </abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+        </p>
+      </div>
+    </div>
+
+    <!--Contact Form-->
+    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <div class="row">
+
+      <div class="col-lg-8 mb-4">
+        <h3>Send us a Message</h3>
+
+        <form name="sentMessage" id="contactForm" novalidate>
+
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Full Name:[Mandatory]</label>
+              <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+              <p class="help-block"></p>
+            </div>
+          </div>
+
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Phone Number:[Mandatory]</label>
+              <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+            </div>
+          </div>
+
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Email Address:[Mandatory]</label>
+              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+            </div>
+          </div>
+
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Subject:</label>
+              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+            </div>
+          </div>
+
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Message:</label>
+              <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+            </div>
+          </div>
+
+          <div id="success"></div>
+          <!-- For success/fail messages -->
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+    <!-- end of contact form -->
+
+  </div>
+  <!--end of container-->
+
+
+ <!--start of footer-->
+   <footer class="py-5 bg-dark">
+     <div class="container">
+       <p class="m-0 text-center text-white">Copyright &copy; APS.pvt LTD 2020</p>
+     </div>
+   </footer>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

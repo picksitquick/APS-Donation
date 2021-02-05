@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Appropriate people Services [APS]</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    {% load static %}
+    <link href="{% static 'aps_app/modern-business.css' %}" rel="stylesheet">
+  </head>
+  <body>
+
+    <!--navigation-->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+      <div class="container">
+        <a href="{% url 'APS_app:index'%}">Home</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="{% url 'APS_app:upcoming' %}" class="nav-link">Upcoming Campaigns</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'APS_app:services' %}" class="nav-link">Our Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'APS_app:about' %}" class="nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'APS_app:contact' %}" class="nav-link">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'APS_app:user_login' %}" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'APS_app:register' %}" class="nav-link">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </nav>
+    <!--end navigation-->
+
+    <br>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{% url 'APS_app:index' %}">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Sign Up</li>
+    </ol>
+
+    <br>
+
+    <div class="container">
+      <div class="jumbotron">
+        {% if registered %}
+          <h1>Thank you for registering!</h1>
+        {% else %}
+          <h1>Register Here!!</h1>
+          <br>
+          <h3>Fill out the form given below:</h3>
+          <br>
+
+          <form enctype="multipart/form-data" method="POST"> <!-- for image upload we need to have enctype in our form-->
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <input type="submit" name=""  class="btn btn-primary" value="Register">
+          </form>
+
+        {% endif %}
+
+      </div>
+    </div>
+
+
+    <!--start of footer-->
+     <footer class="py-5 bg-dark">
+       <div class="container">
+         <p class="m-0 text-center text-white">Copyright &copy; APS.pvt LTD 2020</p>
+       </div>
+     </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
